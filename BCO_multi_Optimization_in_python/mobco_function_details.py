@@ -9,7 +9,7 @@ def mobco_func_details(fname, n_obj=2):
     
     if fname == 'zdt1':
         if n_obj != 2:
-            print(f"⚠️ ZDT1 only supports 2 objectives! Using DTLZ1 with {n_obj} objectives instead.")
+            print(f" ZDT1 only supports 2 objectives! Using DTLZ1 with {n_obj} objectives instead.")
             return mobco_func_details('dtlz1', n_obj)
         fobj = lambda x: zdt1(x)
         lb = 0
@@ -18,7 +18,7 @@ def mobco_func_details(fname, n_obj=2):
         
     elif fname == 'zdt2':
         if n_obj != 2:
-            print(f"⚠️ ZDT2 only supports 2 objectives! Using DTLZ2 with {n_obj} objectives instead.")
+            print(f" ZDT2 only supports 2 objectives! Using DTLZ2 with {n_obj} objectives instead.")
             return mobco_func_details('dtlz2', n_obj)
         fobj = lambda x: zdt2(x)
         lb = 0
@@ -27,7 +27,7 @@ def mobco_func_details(fname, n_obj=2):
         
     elif fname == 'zdt3':
         if n_obj != 2:
-            print(f"⚠️ ZDT3 only supports 2 objectives! Using DTLZ1 with {n_obj} objectives instead.")
+            print(f" ZDT3 only supports 2 objectives! Using DTLZ1 with {n_obj} objectives instead.")
             return mobco_func_details('dtlz1', n_obj)
         fobj = lambda x: zdt3(x)
         lb = 0
@@ -36,7 +36,7 @@ def mobco_func_details(fname, n_obj=2):
         
     elif fname == 'zdt4':
         if n_obj != 2:
-            print(f"⚠️ ZDT4 only supports 2 objectives! Using DTLZ1 with {n_obj} objectives instead.")
+            print(f" ZDT4 only supports 2 objectives! Using DTLZ1 with {n_obj} objectives instead.")
             return mobco_func_details('dtlz1', n_obj)
         fobj = lambda x: zdt4(x)
         lb = 0
@@ -45,7 +45,7 @@ def mobco_func_details(fname, n_obj=2):
         
     elif fname == 'zdt6':
         if n_obj != 2:
-            print(f"⚠️ ZDT6 only supports 2 objectives! Using DTLZ2 with {n_obj} objectives instead.")
+            print(f" ZDT6 only supports 2 objectives! Using DTLZ2 with {n_obj} objectives instead.")
             return mobco_func_details('dtlz2', n_obj)
         fobj = lambda x: zdt6(x)
         lb = 0
