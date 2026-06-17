@@ -138,12 +138,12 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
     Works for 4, 5, 10, 17, 20, 50, 100 objectives!
     """
     
-    # 🔧 FIX 1: Only show up to 10 objectives to avoid overcrowding
+    # FIX 1: Only show up to 10 objectives to avoid overcrowding
     show_obj = min(n_obj, 10)
     
     fig, axes = plt.subplots(2, 3, figsize=(18, 10))
     
-    # ========== PLOT 1: Hypervolume Convergence ==========
+    # PLOT 1: Hypervolume Convergence
     ax1 = axes[0, 0]
     if hv_history:
         gens = [h['gen'] for h in history]
@@ -154,7 +154,7 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
         ax1.grid(True, alpha=0.3)
         ax1.fill_between(gens, hv_history, alpha=0.3)
     
-    # ========== PLOT 2: Archive Size Growth ==========
+    # PLOT 2: Archive Size Growth 
     ax2 = axes[0, 1]
     if len(history) > 0:
         sizes = [h['size'] for h in history]
@@ -165,7 +165,7 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
         ax2.set_title(' Pareto Front Size Growth', fontsize=11)
         ax2.grid(True, alpha=0.3, axis='y')
     
-    # ========== PLOT 3: Parallel Coordinates ==========
+    # PLOT 3: Parallel Coordinates 
     ax3 = axes[0, 2]
     if len(archive_fitness) > 0:
         # Normalize each objective
@@ -184,7 +184,7 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
             mean_line = np.mean(normalized[:, :show_obj], axis=0)
             ax3.plot(range(show_obj), mean_line, 'r-', linewidth=2, label='Mean')
         
-        # 🔧 FIX 2: Same number of ticks AND labels!
+        # FIX 2: Same number of ticks AND labels!
         ax3.set_xticks(range(show_obj))
         ax3.set_xticklabels([f'Obj{i+1}' for i in range(show_obj)], rotation=45, ha='right')
         
@@ -199,14 +199,14 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
         ax3.legend()
         ax3.grid(True, alpha=0.3)
     
-    # ========== PLOT 4: Objective Statistics ==========
+    # PLOT 4: Objective Statistics 
     ax4 = axes[1, 0]
     if len(archive_fitness) > 0:
         means = np.mean(archive_fitness, axis=0)
         stds = np.std(archive_fitness, axis=0)
         mins = np.min(archive_fitness, axis=0)
         
-        # 🔧 FIX 3: Use show_obj for x_pos
+        # FIX 3: Use show_obj for x_pos
         x_pos = np.arange(show_obj)
         width = 0.35
         
@@ -227,10 +227,10 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
         ax4.legend()
         ax4.grid(True, alpha=0.3, axis='y')
     
-    # ========== PLOT 5: Correlation Heatmap ==========
+    # PLOT 5: Correlation Heatmap 
     ax5 = axes[1, 1]
     if len(archive_fitness) > 0 and show_obj > 1:
-        # 🔧 FIX 4: Use only first 'show_obj' objectives
+        # FIX 4: Use only first 'show_obj' objectives
         corr_matrix = np.corrcoef(archive_fitness[:, :show_obj].T)
         im = ax5.imshow(corr_matrix, cmap='coolwarm', vmin=-1, vmax=1)
         
@@ -240,9 +240,9 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
         ax5.set_yticklabels([f'Obj{i+1}' for i in range(show_obj)])
         
         if n_obj > show_obj:
-            ax5.set_title(f'🔗 Objective Correlation\n(First {show_obj} of {n_obj})', fontsize=11)
+            ax5.set_title(f' Objective Correlation\n(First {show_obj} of {n_obj})', fontsize=11)
         else:
-            ax5.set_title(f'🔗 Objective Correlation Matrix', fontsize=11)
+            ax5.set_title(f' Objective Correlation Matrix', fontsize=11)
         
         plt.colorbar(im, ax=ax5, label='Correlation')
     else:
@@ -250,7 +250,7 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
                 ha='center', va='center', fontsize=12)
         ax5.axis('off')
     
-    # ========== PLOT 6: Summary Information ==========
+    # PLOT 6: Summary Information
     ax6 = axes[1, 2]
     if len(archive_fitness) > 0:
         ax6.text(0.5, 0.7, f'{len(archive_fitness)}', 
@@ -265,7 +265,7 @@ def plot_nd_pareto_user(archive_fitness, fname, hv_history, history, n_obj):
         ax6.set_ylim(0, 1)
         ax6.axis('off')
     
-    plt.suptitle(f'🐕 MOBCO Results - {fname.upper()} ({n_obj} Objectives)', fontsize=14, fontweight='bold')
+    plt.suptitle(f'MOBCO Results - {fname.upper()} ({n_obj} Objectives)', fontsize=14, fontweight='bold')
     plt.tight_layout()
     
     # Save the plot
@@ -303,7 +303,7 @@ def plot_comparison_user(all_results):
     ax2.bar([str(n) for n in n_objs], sizes, color=colors, alpha=0.7, edgecolor='black')
     ax2.set_xlabel('Number of Objectives', fontsize=12)
     ax2.set_ylabel('Pareto Front Size', fontsize=12)
-    ax2.set_title('📦 Pareto Front Size vs Number of Objectives', fontsize=12)
+    ax2.set_title('Pareto Front Size vs Number of Objectives', fontsize=12)
     ax2.grid(True, alpha=0.3, axis='y')
     
     plt.suptitle('MOBCO Performance Comparison', fontsize=14, fontweight='bold')
