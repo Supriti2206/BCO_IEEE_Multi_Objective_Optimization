@@ -61,4 +61,4 @@ if __name__ == "__main__":
     pop = np.random.randn(n, L)
     
     pop_new = mobco_update_position(pop, Vt, t, acc, n, L, eye_flag=0)
-    print(f"✅ Position update works! Output shape: {pop_new.shape}")
+    print(f" Position update works! Output shape: {pop_new.shape}")
