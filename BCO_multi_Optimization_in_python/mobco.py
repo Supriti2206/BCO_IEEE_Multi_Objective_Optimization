@@ -179,7 +179,7 @@ def mobco_user(n_obj, fname, n=30, gen=200, archive_size=100, verbose=True, visu
         
         if verbose and (g % 50 == 0 or g == gen - 1):
             progress = int((g+1) / gen * 40)
-            #bar = "█" * progress + "░" * (40 - progress)
+
             print(f"\rProgress: {g+1}/{gen} | Archive: {len(archive)} | HV: {hv_history[-1]:.4f}" if hv_history else f"\rProgress: [{bar}] {g+1}/{gen} | Archive: {len(archive)}", end="")
     
     print()  # New line after progress bar
