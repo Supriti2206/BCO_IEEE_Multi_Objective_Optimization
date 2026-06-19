@@ -65,9 +65,7 @@ def get_dogs_and_sheep(pop, Vt, fit, acc, t, n_dogs=3):
 
 
 if __name__ == "__main__":
-    print("=" * 70)
     print("Testing N-Objective Herding")
-    print("=" * 70)
     
     n, L, n_obj = 20, 5, 5
     
