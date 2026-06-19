@@ -28,9 +28,7 @@ def mobco_generate(n, L, ub, lb):
 
 
 if __name__ == "__main__":
-    print("=" * 70)
     print("Testing Population Generation")
-    print("=" * 70)
     
     pop, acc = mobco_generate(30, 10, 1, 0)
     print(f" Population generation works! Shape: {pop.shape}")
